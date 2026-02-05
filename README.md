@@ -40,7 +40,7 @@ Place the downloaded models into the `rnaernie/` folder.
 ## 🏋️ Model Training
 Use the training script to train the model:
 ```python
-python train.py
+python BAN_graph.py
 ```
 
 ---
