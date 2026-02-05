@@ -1,29 +1,34 @@
 # MEG-mod
-Chemically modified siRNA prediction platform based on multiview enhanced GNN
+
+**Chemically Modified siRNA Potency Prediction Platform Based on Multi-view Enhanced Graph Neural Network**
 
 ---
 
 ## 📁 Project Structure
+
 ```text
 project_root/
-├── data_split/              # train and test data
-├── data_pre/                     
+├── data_split/                # Train and test dataset splits
+├── data_pre/                  # Precomputed feature files
 │   ├── unimol_1b_emb_dict.pkl
 │   ├── rnaernie_base_emb_fixed.pkl
 │   └── cofold_results.pkl
-├── Save_Best_Models/
-│   └── best_model.pt
-├── rnaernie/
-├── BAN_graph.py                # Training and prediction scripts
-├── predict.py
-├── requirements.txt            # Python dependencies
-└── README.md                   # Project overview and usage instructions
+├── Saved_Best_Models/
+│   └── best_model.pt          # Trained model checkpoint
+├── rnaernie/                  # RNAErnie pretrained model
+├── BAN_graph.py               # Model training script
+├── predict.py                 # Prediction script
+├── requirements.txt           # Python dependencies
+└── README.md                  # Project documentation
 ```
 
 ---
 
 ## ⚙️ Environment Setup
-```python
+
+We recommend using Conda to create the running environment:
+
+```bash
 conda create -n MEG-mod python=3.10
 conda activate MEG-mod
 pip install -r requirements.txt
@@ -31,51 +36,74 @@ pip install -r requirements.txt
 
 ---
 
-## 🔽 Download Pretrained Model RNAErnie
-We recommend downloading from:<br/>
-+ **RNAErnie**: https://huggingface.co/multimolecule/rnaernie<br/> 
-Place the downloaded models into the `rnaernie/` folder.
+## 🔽 Download Pretrained RNAErnie Model
+
+Please download the pretrained **RNAErnie** model from HuggingFace:
+
+👉 https://huggingface.co/multimolecule/rnaernie  
+
+After downloading, place the model files into the `rnaernie/` directory.
+
 ---
 
+## 📦 Download Required Precomputed Files
 
----
-## 🏋️ Model Training
 Due to file size limitations, several precomputed feature files are not included in this GitHub repository.  
-Before running the code, please download the following “required files” and place them into the specified directory.
+Before running the training pipeline, please download the following “required files” and place them into the specified directory.
 
----
-
-### 1️⃣ Download Required Files
-
-Please download the following three files:
+### 1️⃣ Required Files
 
 - “unimol_1b_emb_dict.pkl”  
 - “rnaernie_base_emb_fixed.pkl”  
-- “cofold_results.pkl”  
+- “cofold_results.pkl”
+- “best_model.pt”  
 
-Download link (Zenodo):
+Zenodo download link:
 
 👉 https://zenodo.org/records/18492957
 
 ---
+
 ### 2️⃣ File Placement
 
-After downloading, please place all files into the “data_pre” folder under the project root directory, as shown below:
+After downloading, organize the files as follows:
 
+```text
+project_root/
+├── data_pre/
+│   ├── unimol_1b_emb_dict.pkl
+│   ├── rnaernie_base_emb_fixed.pkl
+│   └── cofold_results.pkl
+├── Saved_Best_Models/
+    └── best_model.pt
+```
+
+These files contain precomputed sequence embeddings and duplex cofolding structural information required for MEG-mod.
 
 ---
-### 2️⃣ Training
 
-```python
+## 🏋️ Model Training
+
+Once all required files are prepared, you can train the model using:
+
+```bash
 python BAN_graph.py
 ```
 
 ---
 
 ## 🔍 Model Prediction
-Use the best model to make predictions on test data:
-```python
+
+Use the trained best model to perform prediction:
+
+```bash
 python predict.py
 ```
 
 ---
+
+## 📌 Notes
+
+- Precomputed embedding and structure files are distributed separately to keep the repository lightweight.
+- Ensure all required files are correctly placed before running training or inference.
+- For questions regarding data or models, please contact the authors.
