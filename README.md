@@ -64,7 +64,32 @@ After downloading, please place all files into the “data_pre” folder under t
 
 ---
 ## 🏋️ Model Training
-Use the training script to train the model:
+Due to file size limitations, several precomputed feature files are not included in this GitHub repository.  
+Before running the code, please download the following “required files” and place them into the specified directory.
+
+---
+
+### 1️⃣ Download Required Files
+
+Please download the following three files:
+
+- “unimol_1b_emb_dict.pkl”  
+- “rnaernie_base_emb_fixed.pkl”  
+- “cofold_results.pkl”  
+
+Download link (Zenodo):
+
+👉 https://zenodo.org/records/18492957
+
+---
+### 2️⃣ File Placement
+
+After downloading, please place all files into the “data_pre” folder under the project root directory, as shown below:
+
+
+---
+### 2️⃣ Training
+
 ```python
 python BAN_graph.py
 ```
