@@ -6,17 +6,15 @@ Chemically modified siRNA prediction platform based on multiview enhanced GNN
 ## 📁 Project Structure
 ```text
 project_root/
-├── cls_data/              # train and test data
-├── external_data/              # Input or auxiliary data
-│   └── external.csv
-├── pretrained_model/           # Pretrained BERT model files
-│   ├── gena_lm_bert_base_t2t/
-│   └── DNABERT_6/
-├── results/                     # Model outputs
-│   ├── roc/
-│   ├── prc/
-│   └── metrics/
-├── train.py                # Training and prediction scripts
+├── data_split/              # train and test data
+├── data_pre/                     
+│   ├── unimol_1b_emb_dict.pkl
+│   ├── rnaernie_base_emb_fixed.pkl
+│   └── cofold_results.pkl
+├── Save_Best_Models/
+│   └── best_model.pt
+├── rnaernie/
+├── BAN_graph.py                # Training and prediction scripts
 ├── predict.py
 ├── requirements.txt            # Python dependencies
 └── README.md                   # Project overview and usage instructions
@@ -26,18 +24,17 @@ project_root/
 
 ## ⚙️ Environment Setup
 ```python
-conda create -n BBANsh python=3.10
-conda activate BBANsh
+conda create -n MEG-mod python=3.10
+conda activate MEG-mod
 pip install -r requirements.txt
 ```
 
 ---
 
-## 🔽 Download Pretrained BERT Model
+## 🔽 Download Pretrained Model RNAErnie
 We recommend downloading from:<br/>
-+ **DNABERT**: https://huggingface.co/zhihan1996/DNA_bert_6<br/> 
-+ **GENA-LM**: https://huggingface.co/AIRI-Institute/gena-lm-bert-base-t2t<br/> 
-Place the downloaded models into the `pretrained_model/` folder.
++ **RNAErnie**: https://huggingface.co/multimolecule/rnaernie<br/> 
+Place the downloaded models into the `rnaernie/` folder.
 ---
 
 ## 🏋️ Model Training
