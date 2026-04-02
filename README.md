@@ -1,6 +1,6 @@
 # MEG-mod
 
-**Chemically Modified siRNA Potency Prediction Platform Based on Multi-view Enhanced Graph Neural Network**
+**Chemically Modified siRNA Knockdown Efficiency Prediction Platform Based on Multi-view Enhanced Graph Neural Network**
 
 ---
 
